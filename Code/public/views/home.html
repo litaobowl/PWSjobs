@@ -1,0 +1,33 @@
+	<script type="text/javascript">
+		$('.dropdown-menu li').click(function(e){
+		e.preventDefault();
+		  var selected = $(this).text();
+		  alert(selected);
+		  $('.category').val(selected);  
+		});
+	</script>
+	
+<div class="jumbotron text-center">
+	<h1>Welcome to Jobbook!</h1>
+		<div class="container">
+					<form role="form">	   
+						<p>Enter some key words</p>
+							<div class="col-lg-6 col-lg-offset-3">
+								<div class="input-group">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Select<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+										  <li><a href="#">Key Words</a></li>
+										  <li><a href="#">Location</a></li>
+										</ul>
+										<input type="hidden" name="category" class="category">
+									</div><!-- /btn-group -->
+									<input class="form-control" id="jobKeyWords" placeholder="Ex: Software Engineer...">
+								</div>
+							</div>					
+					    <button type="button" class="btn btn-primary">Search Now!</button>
+					</form>
+				</div>	
+			</div>	
+		</div>	
+</div>
