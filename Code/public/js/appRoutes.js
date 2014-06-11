@@ -18,7 +18,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/geek.html',
 			controller: 'GeekController'	
 		});
-
 	$locationProvider.html5Mode(true);
 
 }]);
