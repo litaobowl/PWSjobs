@@ -1,0 +1,2 @@
+windows下, 下载并安装mongoDB， 我存在了D:/MongoDB里并在里面创建了Data/db 目录用于存放数据. 
+从CMD进入 D:/MongoDB/bin>  mongod.exe --dbpath D:/MongoDB/data/db就可以开启MongoDB 默认端口为27017
