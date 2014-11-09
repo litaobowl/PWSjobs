@@ -6,13 +6,22 @@
 	var mongoose= require('mongoose');
 	var http = require('http')
 	// configuration ===========================================
-		
+	var MONGODB_URI = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || "mongodb://localhost", // Make sure to replace that URI with the one provided by MongoLab
+    db,
+    users;	
 	// config files
 	var db = require('./config/db');
 
 	var port = process.env.PORT || 8080; // set our port
-	mongoose.connect(db.url); // connect to our mongoDB database (uncomment after you enter in your own credentials in config/db.js)
-
+	//mongoose.connect(db.url); // connect to our mongoDB database (uncomment after you enter in your own credentials in config/db.js)
+	mongoose.MongoClient.connect(MONGODB_URI, function (err, database) {
+	  if (err) throw err;
+	  db = database;
+	  users = db.collection("users");
+	  accounts = db.collection("accounts");
+	  var server = app.listen(process.env.PORT || 3000);
+	  console.log("Express server started on port %s", server.address().port);
+	});
 	app.configure(function() {
 		app.use(express.static(__dirname + '/public')); 	// set the static files location /public/img will be /img for users
 		app.use(express.logger('dev')); 					// log every request to the console
